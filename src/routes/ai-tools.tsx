@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import {  CategoryPage } from "@/components/site/Editorial";
+export const Route = createFileRoute("/ai-tools")({head: () => ({ meta: [{ title: "AI Tools — TheHyped" }, { name: "description", content: "Independent reviews of AI tools for research, writing, and automation." }, { property: "og:title", content: "AI Tools — TheHyped" }, { property: "og:description", content: "Independent reviews of AI tools for research, writing, and automation." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <CategoryPage slug="/ai-tools" /> });

@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import {  ComparisonPage } from "@/components/site/Editorial";
+export const Route = createFileRoute("/compare/atlas-ai-vs-flowdesk")({head: () => ({ meta: [{ title: "Atlas AI vs Flowdesk — TheHyped" }, { name: "description", content: "A detailed sample comparison for modern research teams." }, { property: "og:title", content: "Atlas AI vs Flowdesk — TheHyped" }, { property: "og:description", content: "A detailed sample comparison for modern research teams." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: ComparisonPage });

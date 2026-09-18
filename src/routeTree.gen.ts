@@ -10,33 +10,218 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AiToolsRouteImport } from './routes/ai-tools'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as BusinessSoftwareRouteImport } from './routes/business-software'
+import { Route as CompareRouteImport } from './routes/compare'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DisclosureRouteImport } from './routes/disclosure'
+import { Route as FinanceAppsRouteImport } from './routes/finance-apps'
+import { Route as NewsletterRouteImport } from './routes/newsletter'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as CompareAtlasAiVsFlowdeskRouteImport } from './routes/compare.atlas-ai-vs-flowdesk'
+import { Route as ReviewsAtlasAiRouteImport } from './routes/reviews.atlas-ai'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiToolsRoute = AiToolsRouteImport.update({
+  id: '/ai-tools',
+  path: '/ai-tools',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessSoftwareRoute = BusinessSoftwareRouteImport.update({
+  id: '/business-software',
+  path: '/business-software',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DisclosureRoute = DisclosureRouteImport.update({
+  id: '/disclosure',
+  path: '/disclosure',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinanceAppsRoute = FinanceAppsRouteImport.update({
+  id: '/finance-apps',
+  path: '/finance-apps',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsletterRoute = NewsletterRouteImport.update({
+  id: '/newsletter',
+  path: '/newsletter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareAtlasAiVsFlowdeskRoute =
+  CompareAtlasAiVsFlowdeskRouteImport.update({
+    id: '/atlas-ai-vs-flowdesk',
+    path: '/atlas-ai-vs-flowdesk',
+    getParentRoute: () => CompareRoute,
+  } as any)
+const ReviewsAtlasAiRoute = ReviewsAtlasAiRouteImport.update({
+  id: '/atlas-ai',
+  path: '/atlas-ai',
+  getParentRoute: () => ReviewsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai-tools': typeof AiToolsRoute
+  '/blog': typeof BlogRoute
+  '/business-software': typeof BusinessSoftwareRoute
+  '/compare': typeof CompareRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/disclosure': typeof DisclosureRoute
+  '/finance-apps': typeof FinanceAppsRoute
+  '/newsletter': typeof NewsletterRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/reviews': typeof ReviewsRouteWithChildren
+  '/terms': typeof TermsRoute
+  '/compare/atlas-ai-vs-flowdesk': typeof CompareAtlasAiVsFlowdeskRoute
+  '/reviews/atlas-ai': typeof ReviewsAtlasAiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai-tools': typeof AiToolsRoute
+  '/blog': typeof BlogRoute
+  '/business-software': typeof BusinessSoftwareRoute
+  '/compare': typeof CompareRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/disclosure': typeof DisclosureRoute
+  '/finance-apps': typeof FinanceAppsRoute
+  '/newsletter': typeof NewsletterRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/reviews': typeof ReviewsRouteWithChildren
+  '/terms': typeof TermsRoute
+  '/compare/atlas-ai-vs-flowdesk': typeof CompareAtlasAiVsFlowdeskRoute
+  '/reviews/atlas-ai': typeof ReviewsAtlasAiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai-tools': typeof AiToolsRoute
+  '/blog': typeof BlogRoute
+  '/business-software': typeof BusinessSoftwareRoute
+  '/compare': typeof CompareRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/disclosure': typeof DisclosureRoute
+  '/finance-apps': typeof FinanceAppsRoute
+  '/newsletter': typeof NewsletterRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/reviews': typeof ReviewsRouteWithChildren
+  '/terms': typeof TermsRoute
+  '/compare/atlas-ai-vs-flowdesk': typeof CompareAtlasAiVsFlowdeskRoute
+  '/reviews/atlas-ai': typeof ReviewsAtlasAiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/ai-tools'
+    | '/blog'
+    | '/business-software'
+    | '/compare'
+    | '/contact'
+    | '/disclosure'
+    | '/finance-apps'
+    | '/newsletter'
+    | '/privacy-policy'
+    | '/reviews'
+    | '/terms'
+    | '/compare/atlas-ai-vs-flowdesk'
+    | '/reviews/atlas-ai'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/ai-tools'
+    | '/blog'
+    | '/business-software'
+    | '/compare'
+    | '/contact'
+    | '/disclosure'
+    | '/finance-apps'
+    | '/newsletter'
+    | '/privacy-policy'
+    | '/reviews'
+    | '/terms'
+    | '/compare/atlas-ai-vs-flowdesk'
+    | '/reviews/atlas-ai'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/ai-tools'
+    | '/blog'
+    | '/business-software'
+    | '/compare'
+    | '/contact'
+    | '/disclosure'
+    | '/finance-apps'
+    | '/newsletter'
+    | '/privacy-policy'
+    | '/reviews'
+    | '/terms'
+    | '/compare/atlas-ai-vs-flowdesk'
+    | '/reviews/atlas-ai'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AiToolsRoute: typeof AiToolsRoute
+  BlogRoute: typeof BlogRoute
+  BusinessSoftwareRoute: typeof BusinessSoftwareRoute
+  CompareRoute: typeof CompareRouteWithChildren
+  ContactRoute: typeof ContactRoute
+  DisclosureRoute: typeof DisclosureRoute
+  FinanceAppsRoute: typeof FinanceAppsRoute
+  NewsletterRoute: typeof NewsletterRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  ReviewsRoute: typeof ReviewsRouteWithChildren
+  TermsRoute: typeof TermsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +233,143 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-tools': {
+      id: '/ai-tools'
+      path: '/ai-tools'
+      fullPath: '/ai-tools'
+      preLoaderRoute: typeof AiToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business-software': {
+      id: '/business-software'
+      path: '/business-software'
+      fullPath: '/business-software'
+      preLoaderRoute: typeof BusinessSoftwareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disclosure': {
+      id: '/disclosure'
+      path: '/disclosure'
+      fullPath: '/disclosure'
+      preLoaderRoute: typeof DisclosureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/finance-apps': {
+      id: '/finance-apps'
+      path: '/finance-apps'
+      fullPath: '/finance-apps'
+      preLoaderRoute: typeof FinanceAppsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/newsletter': {
+      id: '/newsletter'
+      path: '/newsletter'
+      fullPath: '/newsletter'
+      preLoaderRoute: typeof NewsletterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare/atlas-ai-vs-flowdesk': {
+      id: '/compare/atlas-ai-vs-flowdesk'
+      path: '/atlas-ai-vs-flowdesk'
+      fullPath: '/compare/atlas-ai-vs-flowdesk'
+      preLoaderRoute: typeof CompareAtlasAiVsFlowdeskRouteImport
+      parentRoute: typeof CompareRoute
+    }
+    '/reviews/atlas-ai': {
+      id: '/reviews/atlas-ai'
+      path: '/atlas-ai'
+      fullPath: '/reviews/atlas-ai'
+      preLoaderRoute: typeof ReviewsAtlasAiRouteImport
+      parentRoute: typeof ReviewsRoute
+    }
   }
 }
 
+interface CompareRouteChildren {
+  CompareAtlasAiVsFlowdeskRoute: typeof CompareAtlasAiVsFlowdeskRoute
+}
+
+const CompareRouteChildren: CompareRouteChildren = {
+  CompareAtlasAiVsFlowdeskRoute: CompareAtlasAiVsFlowdeskRoute,
+}
+
+const CompareRouteWithChildren =
+  CompareRoute._addFileChildren(CompareRouteChildren)
+
+interface ReviewsRouteChildren {
+  ReviewsAtlasAiRoute: typeof ReviewsAtlasAiRoute
+}
+
+const ReviewsRouteChildren: ReviewsRouteChildren = {
+  ReviewsAtlasAiRoute: ReviewsAtlasAiRoute,
+}
+
+const ReviewsRouteWithChildren =
+  ReviewsRoute._addFileChildren(ReviewsRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AiToolsRoute: AiToolsRoute,
+  BlogRoute: BlogRoute,
+  BusinessSoftwareRoute: BusinessSoftwareRoute,
+  CompareRoute: CompareRouteWithChildren,
+  ContactRoute: ContactRoute,
+  DisclosureRoute: DisclosureRoute,
+  FinanceAppsRoute: FinanceAppsRoute,
+  NewsletterRoute: NewsletterRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  ReviewsRoute: ReviewsRouteWithChildren,
+  TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

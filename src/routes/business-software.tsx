@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import {  CategoryPage } from "@/components/site/Editorial";
+export const Route = createFileRoute("/business-software")({head: () => ({ meta: [{ title: "Business Software — TheHyped" }, { name: "description", content: "Clear reviews of software for modern teams." }, { property: "og:title", content: "Business Software — TheHyped" }, { property: "og:description", content: "Clear reviews of software for modern teams." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <CategoryPage slug="/business-software" /> });

@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import {  CollectionPage } from "@/components/site/Editorial";
+export const Route = createFileRoute("/reviews/")({head: () => ({ meta: [{ title: "Reviews — TheHyped" }, { name: "description", content: "Independent software reviews with clear verdicts." }, { property: "og:title", content: "Reviews — TheHyped" }, { property: "og:description", content: "Independent software reviews with clear verdicts." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <CollectionPage kind="reviews" /> });

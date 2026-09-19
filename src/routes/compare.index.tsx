@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import {  CollectionPage } from "@/components/site/Editorial";
+export const Route = createFileRoute("/compare/")({head: () => ({ meta: [{ title: "Software Comparisons — TheHyped" }, { name: "description", content: "Side-by-side software comparisons that reveal the trade-offs." }, { property: "og:title", content: "Software Comparisons — TheHyped" }, { property: "og:description", content: "Side-by-side software comparisons that reveal the trade-offs." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <CollectionPage kind="compare" /> });

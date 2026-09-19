@@ -21,8 +21,11 @@ import { Route as FinanceAppsRouteImport } from './routes/finance-apps'
 import { Route as NewsletterRouteImport } from './routes/newsletter'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as CompareIndexRouteImport } from './routes/compare.index'
 import { Route as CompareAtlasAiVsFlowdeskRouteImport } from './routes/compare.atlas-ai-vs-flowdesk'
+import { Route as ReviewsIndexRouteImport } from './routes/reviews.index'
 import { Route as ReviewsAtlasAiRouteImport } from './routes/reviews.atlas-ai'
 
 const IndexRoute = IndexRouteImport.update({
@@ -85,10 +88,20 @@ const ReviewsRoute = ReviewsRouteImport.update({
   path: '/reviews',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
   getParentRoute: () => rootRouteImport,
+} as any)
+const CompareIndexRoute = CompareIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CompareRoute,
 } as any)
 const CompareAtlasAiVsFlowdeskRoute =
   CompareAtlasAiVsFlowdeskRouteImport.update({
@@ -96,6 +109,11 @@ const CompareAtlasAiVsFlowdeskRoute =
     path: '/atlas-ai-vs-flowdesk',
     getParentRoute: () => CompareRoute,
   } as any)
+const ReviewsIndexRoute = ReviewsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ReviewsRoute,
+} as any)
 const ReviewsAtlasAiRoute = ReviewsAtlasAiRouteImport.update({
   id: '/atlas-ai',
   path: '/atlas-ai',
@@ -115,9 +133,12 @@ export interface FileRoutesByFullPath {
   '/newsletter': typeof NewsletterRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/reviews': typeof ReviewsRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/compare/atlas-ai-vs-flowdesk': typeof CompareAtlasAiVsFlowdeskRoute
   '/reviews/atlas-ai': typeof ReviewsAtlasAiRoute
+  '/compare/': typeof CompareIndexRoute
+  '/reviews/': typeof ReviewsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -125,16 +146,17 @@ export interface FileRoutesByTo {
   '/ai-tools': typeof AiToolsRoute
   '/blog': typeof BlogRoute
   '/business-software': typeof BusinessSoftwareRoute
-  '/compare': typeof CompareRouteWithChildren
   '/contact': typeof ContactRoute
   '/disclosure': typeof DisclosureRoute
   '/finance-apps': typeof FinanceAppsRoute
   '/newsletter': typeof NewsletterRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
-  '/reviews': typeof ReviewsRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/compare/atlas-ai-vs-flowdesk': typeof CompareAtlasAiVsFlowdeskRoute
   '/reviews/atlas-ai': typeof ReviewsAtlasAiRoute
+  '/compare': typeof CompareIndexRoute
+  '/reviews': typeof ReviewsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -150,9 +172,12 @@ export interface FileRoutesById {
   '/newsletter': typeof NewsletterRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/reviews': typeof ReviewsRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/compare/atlas-ai-vs-flowdesk': typeof CompareAtlasAiVsFlowdeskRoute
   '/reviews/atlas-ai': typeof ReviewsAtlasAiRoute
+  '/compare/': typeof CompareIndexRoute
+  '/reviews/': typeof ReviewsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -169,9 +194,12 @@ export interface FileRouteTypes {
     | '/newsletter'
     | '/privacy-policy'
     | '/reviews'
+    | '/sitemap.xml'
     | '/terms'
     | '/compare/atlas-ai-vs-flowdesk'
     | '/reviews/atlas-ai'
+    | '/compare/'
+    | '/reviews/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -179,16 +207,17 @@ export interface FileRouteTypes {
     | '/ai-tools'
     | '/blog'
     | '/business-software'
-    | '/compare'
     | '/contact'
     | '/disclosure'
     | '/finance-apps'
     | '/newsletter'
     | '/privacy-policy'
-    | '/reviews'
+    | '/sitemap.xml'
     | '/terms'
     | '/compare/atlas-ai-vs-flowdesk'
     | '/reviews/atlas-ai'
+    | '/compare'
+    | '/reviews'
   id:
     | '__root__'
     | '/'
@@ -203,9 +232,12 @@ export interface FileRouteTypes {
     | '/newsletter'
     | '/privacy-policy'
     | '/reviews'
+    | '/sitemap.xml'
     | '/terms'
     | '/compare/atlas-ai-vs-flowdesk'
     | '/reviews/atlas-ai'
+    | '/compare/'
+    | '/reviews/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -221,6 +253,7 @@ export interface RootRouteChildren {
   NewsletterRoute: typeof NewsletterRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ReviewsRoute: typeof ReviewsRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
 }
 
@@ -310,6 +343,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReviewsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -317,12 +357,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compare/': {
+      id: '/compare/'
+      path: '/'
+      fullPath: '/compare/'
+      preLoaderRoute: typeof CompareIndexRouteImport
+      parentRoute: typeof CompareRoute
+    }
     '/compare/atlas-ai-vs-flowdesk': {
       id: '/compare/atlas-ai-vs-flowdesk'
       path: '/atlas-ai-vs-flowdesk'
       fullPath: '/compare/atlas-ai-vs-flowdesk'
       preLoaderRoute: typeof CompareAtlasAiVsFlowdeskRouteImport
       parentRoute: typeof CompareRoute
+    }
+    '/reviews/': {
+      id: '/reviews/'
+      path: '/'
+      fullPath: '/reviews/'
+      preLoaderRoute: typeof ReviewsIndexRouteImport
+      parentRoute: typeof ReviewsRoute
     }
     '/reviews/atlas-ai': {
       id: '/reviews/atlas-ai'
@@ -336,10 +390,12 @@ declare module '@tanstack/react-router' {
 
 interface CompareRouteChildren {
   CompareAtlasAiVsFlowdeskRoute: typeof CompareAtlasAiVsFlowdeskRoute
+  CompareIndexRoute: typeof CompareIndexRoute
 }
 
 const CompareRouteChildren: CompareRouteChildren = {
   CompareAtlasAiVsFlowdeskRoute: CompareAtlasAiVsFlowdeskRoute,
+  CompareIndexRoute: CompareIndexRoute,
 }
 
 const CompareRouteWithChildren =
@@ -347,10 +403,12 @@ const CompareRouteWithChildren =
 
 interface ReviewsRouteChildren {
   ReviewsAtlasAiRoute: typeof ReviewsAtlasAiRoute
+  ReviewsIndexRoute: typeof ReviewsIndexRoute
 }
 
 const ReviewsRouteChildren: ReviewsRouteChildren = {
   ReviewsAtlasAiRoute: ReviewsAtlasAiRoute,
+  ReviewsIndexRoute: ReviewsIndexRoute,
 }
 
 const ReviewsRouteWithChildren =
@@ -369,6 +427,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewsletterRoute: NewsletterRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ReviewsRoute: ReviewsRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport

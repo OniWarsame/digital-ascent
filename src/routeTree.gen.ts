@@ -26,7 +26,7 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as CompareIndexRouteImport } from './routes/compare.index'
 import { Route as CompareAtlasAiVsFlowdeskRouteImport } from './routes/compare.atlas-ai-vs-flowdesk'
 import { Route as ReviewsIndexRouteImport } from './routes/reviews.index'
-import { Route as ReviewsAtlasAiRouteImport } from './routes/reviews.atlas-ai'
+import { Route as ReviewsSlugRouteImport } from './routes/reviews.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -114,9 +114,9 @@ const ReviewsIndexRoute = ReviewsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ReviewsRoute,
 } as any)
-const ReviewsAtlasAiRoute = ReviewsAtlasAiRouteImport.update({
-  id: '/atlas-ai',
-  path: '/atlas-ai',
+const ReviewsSlugRoute = ReviewsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
   getParentRoute: () => ReviewsRoute,
 } as any)
 
@@ -136,7 +136,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/compare/atlas-ai-vs-flowdesk': typeof CompareAtlasAiVsFlowdeskRoute
-  '/reviews/atlas-ai': typeof ReviewsAtlasAiRoute
+  '/reviews/$slug': typeof ReviewsSlugRoute
   '/compare/': typeof CompareIndexRoute
   '/reviews/': typeof ReviewsIndexRoute
 }
@@ -154,7 +154,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/compare/atlas-ai-vs-flowdesk': typeof CompareAtlasAiVsFlowdeskRoute
-  '/reviews/atlas-ai': typeof ReviewsAtlasAiRoute
+  '/reviews/$slug': typeof ReviewsSlugRoute
   '/compare': typeof CompareIndexRoute
   '/reviews': typeof ReviewsIndexRoute
 }
@@ -175,7 +175,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/compare/atlas-ai-vs-flowdesk': typeof CompareAtlasAiVsFlowdeskRoute
-  '/reviews/atlas-ai': typeof ReviewsAtlasAiRoute
+  '/reviews/$slug': typeof ReviewsSlugRoute
   '/compare/': typeof CompareIndexRoute
   '/reviews/': typeof ReviewsIndexRoute
 }
@@ -197,7 +197,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/compare/atlas-ai-vs-flowdesk'
-    | '/reviews/atlas-ai'
+    | '/reviews/$slug'
     | '/compare/'
     | '/reviews/'
   fileRoutesByTo: FileRoutesByTo
@@ -215,7 +215,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/compare/atlas-ai-vs-flowdesk'
-    | '/reviews/atlas-ai'
+    | '/reviews/$slug'
     | '/compare'
     | '/reviews'
   id:
@@ -235,7 +235,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/compare/atlas-ai-vs-flowdesk'
-    | '/reviews/atlas-ai'
+    | '/reviews/$slug'
     | '/compare/'
     | '/reviews/'
   fileRoutesById: FileRoutesById
@@ -378,11 +378,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReviewsIndexRouteImport
       parentRoute: typeof ReviewsRoute
     }
-    '/reviews/atlas-ai': {
-      id: '/reviews/atlas-ai'
-      path: '/atlas-ai'
-      fullPath: '/reviews/atlas-ai'
-      preLoaderRoute: typeof ReviewsAtlasAiRouteImport
+    '/reviews/$slug': {
+      id: '/reviews/$slug'
+      path: '/$slug'
+      fullPath: '/reviews/$slug'
+      preLoaderRoute: typeof ReviewsSlugRouteImport
       parentRoute: typeof ReviewsRoute
     }
   }
@@ -402,12 +402,12 @@ const CompareRouteWithChildren =
   CompareRoute._addFileChildren(CompareRouteChildren)
 
 interface ReviewsRouteChildren {
-  ReviewsAtlasAiRoute: typeof ReviewsAtlasAiRoute
+  ReviewsSlugRoute: typeof ReviewsSlugRoute
   ReviewsIndexRoute: typeof ReviewsIndexRoute
 }
 
 const ReviewsRouteChildren: ReviewsRouteChildren = {
-  ReviewsAtlasAiRoute: ReviewsAtlasAiRoute,
+  ReviewsSlugRoute: ReviewsSlugRoute,
   ReviewsIndexRoute: ReviewsIndexRoute,
 }
 

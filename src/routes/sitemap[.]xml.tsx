@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-const paths = ["", "/reviews", "/reviews/atlas-ai", "/ai-tools", "/business-software", "/finance-apps", "/compare", "/compare/atlas-ai-vs-flowdesk", "/blog", "/newsletter", "/about", "/contact", "/disclosure", "/privacy-policy", "/terms"];
+const paths = ["", "/reviews", "/reviews/atlas-ai", "/reviews/flowdesk", "/reviews/minutemind", "/reviews/northstar-crm", "/reviews/ledgerly", "/reviews/harbor-pay", "/ai-tools", "/business-software", "/finance-apps", "/compare", "/compare/atlas-ai-vs-flowdesk", "/blog", "/newsletter", "/about", "/contact", "/disclosure", "/privacy-policy", "/terms"];
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {

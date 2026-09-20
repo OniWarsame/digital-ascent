@@ -1,7 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Check, X } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { categoryContent, rankings, stories } from "@/lib/editorial-data";
+import { categoryContent, stories } from "@/lib/editorial-data";
+import { ReviewGrid } from "@/components/site/ReviewArticle";
+import { reviews, reviewsByCategory, type Category } from "@/lib/reviews-data";
 
 export function SectionLabel({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) { return <div className={`mb-6 flex items-center gap-3 text-xs font-extrabold uppercase ${dark ? "text-paper/70" : "text-muted-foreground"}`}><span className="h-2 w-2 bg-primary" />{children}</div>; }
 

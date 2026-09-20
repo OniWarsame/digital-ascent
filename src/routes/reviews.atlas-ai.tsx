@@ -1,3 +1,0 @@
-import { createFileRoute } from "@tanstack/react-router";
-import {  ReviewPage } from "@/components/site/Editorial";
-export const Route = createFileRoute("/reviews/atlas-ai")({head: () => ({ meta: [{ title: "Atlas AI Review — TheHyped" }, { name: "description", content: "An in-depth sample review of an AI research workspace, including features, pricing, pros, cons, and verdict." }, { property: "og:title", content: "Atlas AI Review — TheHyped" }, { property: "og:description", content: "An in-depth sample review of an AI research workspace, including features, pricing, pros, cons, and verdict." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: ReviewPage });

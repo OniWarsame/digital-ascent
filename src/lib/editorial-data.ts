@@ -8,12 +8,12 @@ export type Story = {
   dek: string;
   score: string;
   price: string;
-  path: "/reviews/atlas-ai" | "/compare/atlas-ai-vs-flowdesk" | "/blog";
+  path: "/reviews" | "/compare/atlas-ai-vs-flowdesk" | "/blog";
   image: string;
 };
 
 export const stories: Story[] = [
-  { title: "Atlas AI review: serious research without the tab chaos", eyebrow: "AI TOOLS · EDITOR'S PICK", dek: "A practical look at where an AI research workspace saves time—and where human judgment still matters.", score: "9.1", price: "From $18/mo", path: "/reviews/atlas-ai", image: leadImage },
+  { title: "Atlas AI review: serious research without the tab chaos", eyebrow: "AI TOOLS · EDITOR'S PICK", dek: "A practical look at where an AI research workspace saves time—and where human judgment still matters.", score: "9.1", price: "From $18/mo", path: "/reviews", image: leadImage },
   { title: "Atlas AI vs Flowdesk: depth or speed?", eyebrow: "HEAD-TO-HEAD", dek: "We map the better fit for researchers, operators, and lean teams.", score: "WINNER: ATLAS", price: "8 min read", path: "/compare/atlas-ai-vs-flowdesk", image: comparisonImage },
   { title: "The finance apps that make cash flow legible", eyebrow: "FINANCE APPS", dek: "Three calmer ways to see what is moving, due, and at risk.", score: "3 PICKS", price: "Field guide", path: "/blog", image: financeImage },
 ];

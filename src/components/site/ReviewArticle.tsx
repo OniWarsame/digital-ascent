@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { reviews, type Review } from "@/lib/reviews-data";
 
 function Metric({ label, value }: { label: string; value: string }) {
-  return <div className="bg-secondary p-5"><p className="text-xs font-bold uppercase text-muted-foreground">{label}</p><p className="mt-2 font-display text-xl font-bold">{value}</p></div>;
+  return <div className="bg-secondary p-5"><p className="font-display text-[9px] font-bold uppercase text-muted-foreground">{label}</p><p className="mt-3 font-display text-lg font-bold uppercase">{value}</p></div>;
 }
 
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
@@ -12,7 +12,7 @@ function Block({ title, children }: { title: string; children: React.ReactNode }
 }
 
 function ProsCons({ title, items, good = false }: { title: string; items: string[]; good?: boolean }) {
-  return <div className="border border-border p-6"><h3 className="font-display text-xl font-bold">{title}</h3><ul className="mt-5 space-y-3">{items.map((x) => <li key={x} className="flex gap-3 text-sm">{good ? <Check className="size-5 shrink-0 text-accent" /> : <X className="size-5 shrink-0 text-primary" />}{x}</li>)}</ul></div>;
+  return <div className="border border-border p-6"><h3 className="font-display text-lg font-bold uppercase">{title}</h3><ul className="mt-5 space-y-3">{items.map((x) => <li key={x} className="flex gap-3 text-sm">{good ? <Check className="size-5 shrink-0 text-primary" /> : <X className="size-5 shrink-0 text-muted-foreground" />}{x}</li>)}</ul></div>;
 }
 
 export function reviewSchema(review: Review) {
@@ -54,15 +54,15 @@ export function ReviewArticle({ review }: { review: Review }) {
           <Link to="/reviews" className="hover:text-primary">Reviews</Link><span>/</span>
           <span className="text-primary">{review.name}</span>
         </nav>
-        <p className="text-xs font-bold uppercase text-primary">{review.categoryLabel} · Sample editorial review</p>
-        <h1 className="mt-5 max-w-5xl font-display text-4xl font-extrabold leading-[1.02] md:text-6xl xl:text-7xl">{review.headline}</h1>
-        <p className="mt-6 max-w-3xl text-xl leading-8 text-muted-foreground">{review.dek}</p>
+        <p className="font-display text-[10px] font-bold uppercase text-primary">{review.categoryLabel} // Sample editorial review</p>
+        <h1 className="mt-5 max-w-5xl font-display text-4xl font-bold uppercase leading-[1.02] md:text-6xl xl:text-7xl">{review.headline}</h1>
+        <p className="mt-6 max-w-3xl border-l-2 border-primary pl-5 text-xl leading-8 text-muted-foreground">{review.dek}</p>
         <div className="mt-9 grid gap-px bg-border sm:grid-cols-3">
           <Metric label="Best for" value={review.bestFor} />
           <Metric label="Price" value={review.price} />
           <Metric label="Our score" value={`${review.score} / 10`} />
         </div>
-        <img src={review.image} alt={`${review.name} interface illustration`} width={1200} height={900} className="mt-12 aspect-[16/9] w-full object-cover" />
+        <div className="relative mt-12"><img src={review.image} alt={`${review.name} interface illustration`} width={1200} height={900} className="aspect-[16/9] w-full border border-border object-cover grayscale" /><span className="absolute bottom-0 right-0 bg-primary px-4 py-3 font-display text-sm font-bold text-primary-foreground">SCORE // {review.score}</span></div>
       </div>
       <div className="mx-auto grid max-w-[1200px] gap-12 px-5 pb-20 lg:grid-cols-[1fr_300px] lg:px-10">
         <div className="prose-editorial">
@@ -90,7 +90,7 @@ export function ReviewArticle({ review }: { review: Review }) {
           <Block title="Final verdict"><p>{review.final}</p></Block>
         </div>
         <aside className="h-fit border-t-4 border-primary bg-secondary p-6 lg:sticky lg:top-28">
-          <p className="text-xs font-bold uppercase text-primary">Editorial note</p>
+          <p className="font-display text-[10px] font-bold uppercase text-primary">Editorial note // 01</p>
           <p className="mt-4 text-sm leading-6 text-muted-foreground">This is demonstration editorial content created to show TheHyped’s review format. Pricing and product details are illustrative.</p>
           <Button asChild className="mt-6 w-full rounded-none"><Link to="/compare/atlas-ai-vs-flowdesk">Compare alternatives</Link></Button>
           <Link to="/reviews" className="mt-5 flex items-center gap-2 text-xs font-bold uppercase hover:text-primary">All reviews <ArrowRight className="size-4" /></Link>
@@ -102,16 +102,16 @@ export function ReviewArticle({ review }: { review: Review }) {
 
 export function ReviewGrid({ items }: { items: Review[] }) {
   return (
-    <div className="border-t-2 border-foreground">
-      {items.map((r) => (
-        <Link key={r.slug} to="/reviews/$slug" params={{ slug: r.slug }} className="grid grid-cols-[1fr_auto] items-center gap-4 border-b border-border py-6 transition-colors hover:bg-secondary md:grid-cols-[1.2fr_1fr_auto]">
-          <div>
-            <p className="text-xs font-bold uppercase text-primary">{r.categoryLabel}</p>
-            <h2 className="mt-2 font-display text-2xl font-bold md:text-3xl">{r.name}</h2>
+    <div className="border-t border-primary">
+      {items.map((r, index) => (
+        <Link key={r.slug} to="/reviews/$slug" params={{ slug: r.slug }} className="group grid grid-cols-[2.5rem_1fr_auto] items-center gap-4 border-b border-border py-6 transition-colors hover:bg-secondary md:grid-cols-[3.5rem_1.2fr_1fr_auto]">
+          <span className="font-display text-xl text-foreground/15 group-hover:text-primary">0{index + 1}</span><div>
+            <p className="font-display text-[9px] font-bold uppercase text-primary">{r.categoryLabel}</p>
+            <h2 className="mt-2 font-display text-xl font-bold uppercase md:text-2xl">{r.name}</h2>
             <p className="mt-2 max-w-xl text-sm leading-6 text-muted-foreground">{r.dek}</p>
           </div>
           <p className="hidden text-sm text-muted-foreground md:block">{r.bestFor} · {r.price}</p>
-          <span className="font-display text-2xl font-extrabold">{r.score}</span>
+          <span className="font-display text-xl font-bold">{r.score}</span>
         </Link>
       ))}
     </div>

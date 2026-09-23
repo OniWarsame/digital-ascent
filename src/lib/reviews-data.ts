@@ -1,6 +1,6 @@
-import leadImage from "@/assets/lead-review.jpg";
-import comparisonImage from "@/assets/comparison.jpg";
-import financeImage from "@/assets/finance-apps.jpg";
+import leadImage from "@/assets/lead-review-redesign.jpg";
+import comparisonImage from "@/assets/comparison-redesign.jpg";
+import financeImage from "@/assets/finance-apps-redesign.jpg";
 
 export type Category = "ai-tools" | "business-software" | "finance-apps";
 

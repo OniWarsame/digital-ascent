@@ -1,13 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { categoryContent, stories } from "@/lib/editorial-data";
 import { ReviewGrid } from "@/components/site/ReviewArticle";
+import { NewsletterForm } from "@/components/site/Forms";
 import { reviews, reviewsByCategory, type Category } from "@/lib/reviews-data";
 
 export function SectionLabel({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) { return <div className={`mb-6 flex items-center gap-3 font-display text-[10px] font-bold uppercase ${dark ? "text-paper/65" : "text-muted-foreground"}`}><span className="h-px w-8 bg-primary" />{children}</div>; }
 
-export function NewsletterBand() { return <section className="border-y border-primary bg-accent text-accent-foreground"><div className="mx-auto grid max-w-[1440px] gap-8 px-5 py-14 lg:grid-cols-[1.25fr_1fr] lg:items-end lg:px-10 lg:py-20"><div><SectionLabel dark>Tuesday intelligence // 07:00</SectionLabel><h2 className="max-w-3xl font-display text-3xl font-bold uppercase leading-[1.08] md:text-5xl">One sharp briefing.<br/><span className="text-primary">Zero launch-day noise.</span></h2></div><div><p className="mb-6 max-w-lg leading-7 text-paper/70">The week’s important software shifts, tested tools, and practical buying advice.</p><Button asChild className="h-12 px-6"><Link to="/newsletter">Join the briefing <ArrowRight /></Link></Button></div></div></section>; }
+export function NewsletterBand() { return <section className="border-y border-primary bg-accent text-accent-foreground"><div className="mx-auto grid max-w-[1440px] gap-8 px-5 py-14 lg:grid-cols-[1.25fr_1fr] lg:items-end lg:px-10 lg:py-20"><div><SectionLabel dark>Tuesday intelligence // 07:00</SectionLabel><h2 className="max-w-3xl font-display text-3xl font-bold uppercase leading-[1.08] md:text-5xl">One sharp briefing.<br/><span className="text-primary">Zero launch-day noise.</span></h2></div><div><p className="mb-6 max-w-lg leading-7 text-paper/70">The week’s important software shifts, tested tools, and practical buying advice.</p><NewsletterForm compact /></div></div></section>; }
 
 export function HomePage() {
   const lead = stories[0];

@@ -30,7 +30,7 @@ export function SiteFooter() {
       <div><p className="font-display text-4xl font-bold uppercase md:text-6xl">THE<span className="text-primary">HYPED</span><span className="text-primary">.</span></p><p className="mt-5 max-w-md text-sm leading-7 text-paper/65">Independent reviews for people choosing the technology their work depends on.</p></div>
       <div className="grid grid-cols-2 gap-5 text-xs font-bold uppercase">{secondary.map(([label,to]) => <Link key={to} to={to} className="text-paper/60 hover:text-primary">{label}</Link>)}</div>
     </div>
-    <div className="flex flex-col gap-3 pt-7 font-display text-[10px] uppercase text-paper/45 sm:flex-row sm:justify-between"><p>© 2026 TheHyped // Clear decisions</p><p>Signal: active // Edition 01</p></div>
+    <div className="flex flex-col gap-3 pt-7 font-display text-[10px] uppercase text-paper/45 sm:flex-row sm:justify-between"><p>© 2026 THEHYPED. All rights reserved.</p><p>Owned and published by THEHYPED // Edition 01</p></div>
   </div></footer>;
 }
 
